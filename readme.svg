@@ -1,0 +1,194 @@
+<svg fill="none" viewBox="0 0 800 400" width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+	<foreignObject width="100%" height="100%">
+		<div xmlns="http://www.w3.org/1999/xhtml">
+			<style>
+                    @keyframes fade-in-bottom {
+                    from {
+                        opacity: 0;
+                        transform: translate3d(0, -20px, 0);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translate3d(0, 0, 0);
+                    }
+                }
+				    @keyframes fadeIn {
+					0% {
+						opacity: 0;
+					}
+					66% {
+						opacity: 0;
+					}
+					100% {
+						opacity: 1;
+					}
+				}
+                    @keyframes fade-in-right {
+                    from {
+                        opacity: 0;
+                        transform: translate3d(-20px, 0, 0);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translate3d(0, 0, 0);
+                    }
+                }
+                    @keyframes ping {
+                    75%,
+                    100% {
+                        transform: scale(2);
+                        opacity: 0;
+                    }
+                }
+                :root {
+                    --bg-color: rgb(20,20,20);
+                }
+                main {
+                    background-color: var(--bg-color);
+                    overflow: hidden;
+                    border: 1px solid rgba(255,255,255, 0.1);
+                    border-radius: 10px;
+                }
+                a {
+                    text-decoration: none;
+                }
+                h2 {
+                font-family:
+						system-ui,
+						-apple-system,
+						'Segoe UI',
+						Roboto,
+						Helvetica,
+						Arial,
+						sans-serif,
+						'Apple Color Emoji',
+						'Segoe UI Emoji';
+                }
+                .animate-fade-in-bottom {
+                    opacity: 0;
+                    animation: fade-in-bottom 0.64s cubic-bezier(0, 0, 0.2, 1) forwards;
+                    animation-delay: 0.4s;
+                }
+				.container {
+					font-family:
+						system-ui,
+						-apple-system,
+						'Segoe UI',
+						Roboto,
+						Helvetica,
+						Arial,
+						sans-serif,
+						'Apple Color Emoji',
+						'Segoe UI Emoji';
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					margin: 0;
+					width: 100%;
+					height: 400px;
+					background-color: rgba(255,255,255, 0.02);
+					background-size: 600% 400%;
+					animation: gradientBackground 10s ease infinite;
+					border-radius: 10px;
+					color: white;
+					text-align: center;
+                    position: relative;
+				}
+                .container::before {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    left: 0px;
+                    top: 0px;
+                    content: "";
+                    border-radius: inherit;
+                    z-index: 2;
+                    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255, 0.06), transparent 40%);
+                }
+                .animate-ping {
+                    animation: ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+                }
+                .additional {
+                    opacity: 0;
+                    animation-delay: 1s;
+                }
+                .available-for-hire {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                }
+                .additional__indicator {
+                    opacity: 0;
+                    animation-delay: 1.6s;
+                }
+                .animate-fade-in {
+                    animation: fade-in 0.64s cubic-bezier(0, 0, 0.2, 1) forwards;
+                }
+                .animate-fade-in-right {
+                    animation: fade-in-right 0.64s cubic-bezier(0, 0, 0.2, 1) forwards;
+                    opacity: 0;
+                    animation-delay: 1s;
+                }
+                .purple-text {
+                    color: #a100f1;
+                }
+                .purple-ping-dot {
+                    position: relative;
+                    border-radius: 50%;
+                    background: #a100f1;
+                    width: 10px;
+                    height: 10px;
+                }
+                .purple-ping {
+                    position: absolute;
+                    background: #a100f1;
+                    border-radius: 50%;
+                    width: 10px;
+                    height: 10px;
+                    top: 0%;  
+                    left: 0%;
+                }
+				h1 {
+					font-size: 50px;
+					line-height: 1.3;
+					letter-spacing: 3px;
+				}
+                .animate-fade-in-bottom.delayed {
+                    animation-delay: 0.7s;
+                }
+				p {
+					font-size: 20px;
+					text-shadow: 0 1px 0 #efefef;
+					animation: 5s ease 0s normal forwards 1 fadeIn;
+				}
+			</style>
+            <script>
+                window.onload = () => {
+                document.getElementById("main").onmousemove = e => {
+                    for (const container of document.getElementsByClassName("container")) {
+                    const rect = container.getBoundingClientRect(),
+                        x = e.clientX - rect.left,
+                        y = e.clientY - rect.top;
+
+                    container.style.setProperty("--mouse-x", `${x}px`);
+                    container.style.setProperty("--mouse-y", `${y}px`);
+                    }
+                };
+                };
+            </script>
+            <main id="main">
+            <a href="https://www.linkedin.com/in/kenjinakagava/">
+			<div class="container">
+				<h1 class="animate-fade-in-bottom">I'm <span class="purple-text">Kenji</span> Nakagava</h1>
+                <h2 class="animate-fade-in-bottom delayed">Front-end Developer</h2>
+                <div class="available-for-hire animate-fade-in-right">
+                    <div class="purple-ping-dot"><div class="purple-ping animate-ping"></div></div>
+                    <h3 class="purple-text">AVAILABLE FOR HIRE</h3>
+                </div>
+			</div>
+            </a>
+            </main>
+		</div>
+	</foreignObject>
+</svg>
